@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+  <title>{{ title }}</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    p {
+      color: #adbac7;
+    }
+
+    code {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      padding-left: 6px;
+      padding-right: 6px;
+
+      font-family: 'Ubuntu Mono', monospace;
+      font-weight: 400;
+      font-style: normal;
+      color: #CC7730;
+
+      border-radius: 4px;
+
+      background-color: #222222;
+    }
+
+    .page-body {
+      margin: 0;
+
+      display: grid;
+      grid-template-rows: min-content 1fr min-content;
+      grid-template-columns: 1fr;
+
+      background-color: #2b2b2b;
+
+      font-family: Roboto, sans-serif;
+    }
+
+    .container {
+      margin: 0 auto;
+      padding-left: 15px;
+      padding-right: 15px;
+      max-width: 1200px;
+    }
+
+    .header-title {
+      grid-row: 1 / 2;
+      color: #A5C261;
+
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+    }
+
+    .page-main {
+      grid-row: 2 / 3;
+      width: 100%;
+    }
+
+    .page-footer {
+      grid-row: 3 / 4;
+    }
+
+    .footer-caption {
+      text-align: center;
+      color: #adbac7;
+
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+  </style>  
+</head>
+
+<body class="page-body">
+  <header>
+    <div class="container">
+      <p class="header-title">Linux notes</>
+    </div>
+  </header> 
+
