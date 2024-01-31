@@ -1,6 +1,7 @@
 ---
 title: Node.js
 layout: base-layout
+time: 31-01-24
 ---
 # Установка и удаление
 
@@ -73,8 +74,10 @@ layout: base-layout
 
 ## BIN
 
-`wget https://nodejs.org/dist/v13.14.0/node-v13.14.0-linux-x64.tar.xz`
+```
+wget https://nodejs.org/dist/v13.14.0/node-v13.14.0-linux-x64.tar.xz
 
-`tar xJf node-v13.14.0-linux-x64.tar.xz --strip 1`
+tar xJf node-v13.14.0-linux-x64.tar.xz --strip 1
 
-`rm node-v13.14.0-linux-x64.tar.xz`
+rm node-v13.14.0-linux-x64.tar.xz
+```
