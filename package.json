@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test:htmlhint": "npx htmlhint _site/**.html",
     "build": "env NODE_ENV=production npx eleventy --pathprefix 'eleventy'",
     "serve": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy"
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/Vulong-development/linux-notes#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "htmlhint": "^1.1.4"
   }
 }
