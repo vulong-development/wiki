@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+  <title>Соглашения о коммитах</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+
+      box-sizing: border-box;
+    }
+
+    hr {
+      width: 100%;
+      height: 1px;
+      border: none;
+      background-color: #616161;
+    }
+
+    h1,h2,h3,h4,h5 {
+      margin: 0;
+      padding: 0;
+      line-height: 143%;
+      letter-spacing: 0.15px;
+      color: #b5c1ad;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+
+    }
+
+    h3 {
+      margin-top: 10px;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    h4 {
+      margin-top: 8px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0;
+      margin-top: 16px;
+      padding: 0;
+      color: #ffffff;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0.15px;
+    }
+
+    code {
+      padding: 3px 6px;
+      border-radius: 6px; 
+      font-family: 'Ubuntu Mono', monospace;
+      font-size: 14px;
+      color: #B71C1C;
+
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    pre {
+      display: block;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+
+        font-family: 'Ubuntu Mono', monospace;
+        font-weight: 400;
+        font-style: normal;
+        
+
+        border-radius: 4px;
+
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    pre code {
+      padding: 0;
+      background-color: transparent;
+      color: #ffffff;
+    }
+
+    time {
+      font-size: 12px;
+      color: #808080;
+    }
+
+    .page-body {
+      margin: 0;
+
+      display: grid;
+      grid-template-rows: min-content 1fr min-content;
+      grid-template-columns: 1fr;
+
+      font-family: Roboto, sans-serif;
+
+      font-family: Roboto, Arial, sans-serif;
+      background-image: url('https://storage.yandexcloud.net/xdr-bucket/wiki-vulong-development/bg.jpg');
+      background-repeat: repeat;
+    }
+
+    .container {
+      margin: 0 auto;
+      padding-left: 15px;
+      padding-right: 15px;
+      max-width: 1200px;
+    }
+
+    .page-main {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      grid-row: 2 / 3;
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+    }
+
+    li {
+      color: #ffffff;
+
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 143%;
+      letter-spacing: 0.15px;
+    }
+
+    li:not(:last-of-type) {
+      margin-bottom: 16px;
+    }
+
+    a {
+      display: block;
+      margin-bottom: 12px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    a:not(:last-of-type) {
+      margin-bottom: 12px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    
+    .page-header {
+      padding-left: 20px;
+      padding-right: 20px;
+      grid-row: 1 / 2;
+    }
+
+    .header-title {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 150%;
+      letter-spacing: 0.15px;
+      color: #ffffff;
+    }
+
+    .header-subtitle {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: 0.15px;
+      color: #c4c4c3;
+    }
+
+    .header-nav {
+      margin-top: 24px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+
+      box-shadow: 0 4px 5px -3px #000;
+      background-color: #698567;
+    }
+
+
+     /*footer*/
+    .page-footer {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      grid-row: 3 / 4;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-caption {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #808080;
+
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+  </style>  
+</head>
+
+<body class="page-body">
+  <header class="page-header">
+    <div class="container">
+      <p class="header-title">Vulong Development</p>
+      <span class="header-subtitle">Software &amp; applications</span>
+    </div>
+    <nav class="header-nav">
+      <div class="container">
+        Документация
+      </div>
+    </nav>
+  </header> 
+
+
+
+  <main class="page-main container"> 
+    <h1>Соглашения о коммитах:</h1>
+<hr>
+<p><time>25 мая 2024</time></p>
+<h3>Оглавление:</h3>
+<ul>
+<li><a href="#%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B">Примеры</a></li>
+<li><a href="#%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F">Спецификация</a></li>
+</ul>
+<h4>Причины использования соглашения о коммитах:</h4>
+<ul>
+<li>Автоматическая генерация чейнджлогов.</li>
+<li>Автоматическое определение семантического повышения версии (на основе типов совершенных коммитов).</li>
+<li>Информирование товарищей по команде, сообщества и других заинтересованных сторон о характере изменений.</li>
+<li>Запуск процессов сборки и публикации по триггерам.</li>
+<li>Возможность упростить людям участие в ваших проектах, позволив им изучить более структурированную историю коммитов.</li>
+</ul>
+<h4>Сообщения коммитов должны быть следующей структуры:</h4>
+<pre><code class="language-bash">&lt;тип&gt;[необязательный контекст]: &lt;описание&gt;
+
+[необязательное тело]
+
+[необязательная(ые) сноска(и)]
+</code></pre>
+<p>Коммит содержит следующие структурные элементы для передачи намерений пользователям вашей библиотеки:</p>
+<ul>
+<li><code>fix</code> : коммит типа fix исправляет баг в вашем коде (соответствует <code>PATCH</code> в Cемантическом Версионировании).</li>
+<li><code>feat</code> : коммит типа feat добавляет новую функцию в ваш код (соответствует MINOR в Cемантическом Версионировании).</li>
+<li><code>BREAKING CHANGE</code> : коммит, который имеет сноску <code>BREAKING CHANGE</code> или коммит, заканчивающийся восклицательным знаком (!) после типа или контекста, вводящий изменение(я), нарушающие обратную совместимость (соответствует <code>MAJOR</code> в Cемантическом Версионировании). <code>BREAKING CHANGE</code> может быть частью коммита любого типа.</li>
+</ul>
+<p>Разрешены другие типы коммитов:</p>
+<ul>
+<li><code>build</code> :</li>
+<li><code>chore</code> : обновление рутинных задач и т. д.; без изменения производственного кода</li>
+<li><code>ci</code> :</li>
+<li><code>docs</code> : изменения в документации</li>
+<li><code>style</code> : форматирование, отсутствующие точки с запятой и т. д .; без изменения производственного кода</li>
+<li><code>refactor</code> : рефакторинг производственного кода, например, переименование переменной</li>
+<li><code>perf</code> :</li>
+<li><code>test</code> : добавление недостающих тестов, рефакторинг тестов; без изменения производственного кода</li>
+</ul>
+<h3>Примеры:</h3>
+<h4>Сообщение коммита с описанием и сноской <code>BREAKING CHANGE</code>:</h4>
+<pre><code>feat: allow provided config object to extend other configs
+
+BREAKING CHANGE: `extends` key in config file is now used for extending other config files
+</code></pre>
+<h4>Сообщение коммита с <code>!</code> для привлечения внимания к <code>BREAKING CHANGE</code>:</h4>
+<pre><code>feat!: send an email to the customer when a product is shipped
+</code></pre>
+<h4>Сообщение коммита с контекстом и <code>!</code> для привлечения внимания к <code>BREAKING CHANGE</code>:</h4>
+<pre><code>feat(api)!: send an email to the customer when a product is shipped
+</code></pre>
+<h4>Сообщение коммита вместе с <code>!</code> и сноской <code>BREAKING CHANGE</code>:</h4>
+<pre><code>chore!: drop support for Node 6
+
+BREAKING CHANGE: use JavaScript features not available in Node 6.
+</code></pre>
+<h4>Сообщение коммита без тела:</h4>
+<pre><code>docs: correct spelling of CHANGELOG
+</code></pre>
+<h4>Сообщение коммита с контекстом:</h4>
+<pre><code>feat(lang): add polish language
+</code></pre>
+<h4>Сообщение коммита с телом из нескольких абзацев и несколькими сносками:</h4>
+<pre><code>fix: prevent racing of requests
+
+Introduce a request id and a reference to latest request. Dismiss
+incoming responses other than from latest request.
+
+Remove timeouts which were used to mitigate the racing issue but are
+obsolete now.
+
+Reviewed-by: Z
+Refs: #123
+</code></pre>
+<h3>Спецификация:</h3>
+<p>Слова «MUST», «MUST NOT», «REQUIRED», «SHALL», «MAY» и «OPTIONAL» в данном документе должны интерпретироваться как в RFC 2119.</p>
+<ol>
+<li>Коммиты должны (MUST) начинается с типа, который является существительным: feat, fix и т.д. За ним следует необязательный (OPTIONAL) контекст, необязательный (OPTIONAL) восклицательный знак (!) и обязательные (REQUIRED) двоеточие (:) и пробел ( ).</li>
+<li>Тип feat должен (MUST) использоваться, когда коммит добавляет новый функционал в ваше приложение или вашу библиотеку.</li>
+<li>Тип fix должен (MUST) использоваться, когда коммит исправляет баг в вашем приложении или вашей библиотеке.</li>
+<li>Контекст может (MAY) следовать после типа. Контекст должен (MUST) быть существительным, заключённым в круглые скобки, описывающий часть кодовой базы, которую затронул коммит. Например, fix(parser).</li>
+<li>Описание должно (MUST) следовать сразу за двоеточием (:) и пробелом ( ) после типа или контекста. Описание представляет собой краткое изложение изменений кода. Например, fix: array parsing issue when multiple spaces were contained in string.</li>
+<li>Тело коммита может (MAY) следовать после короткого описания, добавляя дополнительную контекстную информацию об изменениях в коде. Тело должно (MUST) отделяться от описания одной пустой строкой.</li>
+<li>Тело коммита имеет произвольную форму и может (MAY) состоять из любого количества абзацев, разделённых новой строкой.</li>
+<li>В одной или нескольких сносках может (MAY) быть одна пустая строка после тела. Каждая сноска должна (MUST) состоять из токена слова, за которым следует разделитель :&lt;пробел&gt; или &lt;пробел&gt;#, за которым следует строковое значение (основано на git trailer format).</li>
+<li>Токен сноски должен (MUST) использовать - вместо пробельных символов. Например, Acked-by (это помогает отличить раздел сноски от его тела, состоящего из нескольких абзацев). Исключение составляет BREAKING CHANGE, которое может (MAY) также использоваться как токен.</li>
+<li>Сноска может (MAY) содержать пробелы и символы новой строки, а считывание должно (MUST) завершаться при обнаружении следующей допустимой пары токен-разделитель сноски.</li>
+<li>Критические изменения должны (MUST) быть указаны в типе, контексте или сноске коммита.</li>
+<li>Если BREAKING CHANGE включено в сноску, то оно должно (MUST) состоять из прописного текста BREAKING CHANGE, за которым следует двоеточие (:), пробел ( ) и описание. Например, BREAKING CHANGE: environment variables now take precedence over config files.</li>
+<li>Если критические изменения находятся в типе или контексте, то они должны (MUST) быть обозначены восклицательным знаком (!), непосредственно перед двоеточием (:). Если используется восклицательный знак (!), то BREAKING CHANGE может (MAY) быть опущен в сноске, а описание коммита должно (SHALL) использоваться для описания критического изменения.</li>
+<li>В ваших сообщениях коммитов могут (MAY) использоваться типы, отличные от feat и fix. Например, docs: updated ref docs.</li>
+<li>Единицы информации, которые составляют «Соглашение о коммитах», не должны (MUST NOT) обрабатываться разработчиками как чувствительные к регистру, за исключением BREAKING CHANGE, которое должно (MUST) быть прописными.</li>
+<li><code>BREAKING-CHANGE</code> должен (MUST) быть синонимом <code>BREAKING CHANGE</code> при использовании в качестве токена в сноске.</li>
+</ol>
+
+  </main> 
+
+  <footer class="page-footer">
+    <p class="footer-caption">wiki.vulong-development</p>
+  </footer>
+</body>
+</html>
