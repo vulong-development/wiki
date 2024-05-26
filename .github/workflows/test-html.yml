@@ -3,7 +3,7 @@ name: test-html
 on:
   push:
     branches:
-      - master
+      - development
 
 jobs:
   validate:
