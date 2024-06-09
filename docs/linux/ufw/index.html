@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+  <title>Настройка фаервола в Ubuntu с помощью утилиты UFW | wiki</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+
+      box-sizing: border-box;
+    }
+
+    hr {
+      width: 100%;
+      height: 1px;
+      border: none;
+      background-color: #616161;
+    }
+
+    h1,h2,h3,h4,h5 {
+      margin: 0;
+      padding: 0;
+      line-height: 143%;
+      letter-spacing: 0.15px;
+      color: #b5c1ad;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+
+    }
+
+    h3 {
+      margin-top: 10px;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    h4 {
+      margin-top: 8px;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0;
+      margin-top: 16px;
+      padding: 0;
+      color: #ffffff;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0.15px;
+    }
+
+    code {
+      padding: 3px 6px;
+      border-radius: 6px; 
+      font-family: 'Ubuntu Mono', monospace;
+      font-size: 14px;
+      color: #B71C1C;
+
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    pre {
+      display: block;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+
+        font-family: 'Ubuntu Mono', monospace;
+        font-weight: 400;
+        font-style: normal;
+        
+
+        border-radius: 4px;
+
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    pre code {
+      padding: 0;
+      background-color: transparent;
+      color: #ffffff;
+    }
+
+    time {
+      font-size: 12px;
+      color: #808080;
+    }
+
+    .page-body {
+      margin: 0;
+
+      display: grid;
+      grid-template-rows: min-content 1fr min-content;
+      grid-template-columns: 1fr;
+
+      font-family: Roboto, sans-serif;
+
+      font-family: Roboto, Arial, sans-serif;
+      background-image: url('https://storage.yandexcloud.net/xdr-bucket/wiki-vulong-development/bg.jpg');
+      background-repeat: repeat;
+    }
+
+    .container {
+      margin: 0 auto;
+      padding-left: 15px;
+      padding-right: 15px;
+      max-width: 1200px;
+    }
+
+    .page-main {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      grid-row: 2 / 3;
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+    }
+
+    li {
+      color: #ffffff;
+
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 143%;
+      letter-spacing: 0.15px;
+    }
+
+    li:not(:last-of-type) {
+      margin-bottom: 16px;
+    }
+
+    a {
+      display: block;
+      margin-bottom: 12px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    a:not(:last-of-type) {
+      margin-bottom: 12px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    
+    .page-header {
+      padding-left: 20px;
+      padding-right: 20px;
+      grid-row: 1 / 2;
+    }
+
+    .header-title {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 150%;
+      letter-spacing: 0.15px;
+      color: #ffffff;
+    }
+
+    .header-subtitle {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: 0.15px;
+      color: #c4c4c3;
+    }
+
+    .header-nav {
+      margin-top: 24px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+
+      box-shadow: 0 4px 5px -3px #000;
+      background-color: #698567;
+    }
+
+
+     /*footer*/
+    .page-footer {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      grid-row: 3 / 4;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-caption {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #808080;
+
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+  </style>  
+</head>
+
+<body class="page-body">
+  <header class="page-header">
+    <div class="container">
+      <p class="header-title">Vulong Development</p>
+      <span class="header-subtitle">Software &amp; applications</span>
+    </div>
+    <nav class="header-nav">
+      <div class="container">
+        Документация
+      </div>
+    </nav>
+  </header> 
+
+
+
+  <main class="page-main container"> 
+    <h1>Настройка фаервола в Ubuntu с помощью утилиты UFW</h1>
+<hr>
+<p><time>9 июня 2024</time></p>
+<h3>Оглавление:</h3>
+<ul>
+<li><a href="#%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B">Примеры</a></li>
+<li><a href="#%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F">Спецификация</a></li>
+</ul>
+<h3>Предварительные требования</h3>
+<ul>
+<li>Для начала работы с UFW вам потребуется суперпользователь( возможность исполнения команд под sudo).</li>
+<li>Утилита  UFW предустановлена в системе. Если по какой-то причине она была отсутствует, вы можете установить ее  с помощью команды:</li>
+</ul>
+<pre><code>sudo apt-get install ufw
+</code></pre>
+<h3>Проверка правил и текущего состояния UFW</h3>
+<p>В любое время вы можете проверить состояние UFW с помощью команды:</p>
+<pre><code>sudo ufw status verbose
+</code></pre>
+<p>По умолчанию UFW отключен, так что вы должны увидеть что-то вроде этого:</p>
+<pre><code>Status: inactive
+</code></pre>
+<p>Если UFW включен, то в консоли будут перечисляться заданные правила. Например, если firewall настроен таким образом — SSH (порт 22) соединение из любой точки мира, консоль может выглядеть следующим образом:</p>
+<pre><code>Status: active
+
+Logging: on (low)
+
+Default: deny (incoming), allow (outgoing), disabled (routed)
+
+New profiles: skip
+
+ 
+
+To                         Action      From
+
+--                         ------      ----
+
+22                         ALLOW IN    Anywhere
+
+22 (v6)                    ALLOW IN    Anywhere (v6)
+</code></pre>
+<p>Так вы всегда можете узнать как настроен фаервол.</p>
+<p><strong>Внимание!</strong> Проведите начальную настройку перед включением UFW. В частности, должен быть доступен SSH(22 порт). В ином случае вы рискуете потерять доступ к серверу.</p>
+<h3>Начальная настройка</h3>
+<p>По умолчанию UFW настройки запрещают все входящие соединения и разрешают все исходящие. Это значит, что если кто-то попытается  достичь ваш сервер, он не сможет подключиться, в то время как любое приложение на сервере имеет доступ к внешним соединениям.</p>
+<p>Cоответствующие правила фаервола прописываются так:</p>
+<pre><code>sudo ufw default deny incoming
+
+sudo ufw default allow outgoing
+</code></pre>
+<h3>Добавление правила для SSH-соединений</h3>
+<p>Чтобы разрешить входящие SSH-соединения, выполните команду:</p>
+<pre><code>sudo ufw allow ssh
+</code></pre>
+<p>SSH демон прослушивает 22 порт. UFW знает об именах распространенных служб (ssh, sftp, http, https), поэтому вы можете использовать их вместо номера порта.</p>
+<p>Если ваш SSH-демон использует другой порт, вам необходимо указать его в явном виде, например:</p>
+<pre><code>sudo ufw allow 2222
+</code></pre>
+<p>Вы получите похожее  предупреждение:</p>
+<pre><code>Command may disrupt existing ssh connections. Proceed with operation (y|n)? 
+</code></pre>
+<p>Это означает, что запуск этого сервиса может разорвать текущее ssh соединение.
+Но, так как мы его уже добавили ssh в правила, этого не произойдет. Поэтому просто нажмите <code>(y)</code>.</p>
+<h3>Добавление правил для других подключений</h3>
+<p>Чтобы ваши приложения работали корректно, вам необходимо добавить другие правила. Ниже будут  показаны настроить для наиболее распространённых служб.</p>
+<h4>HTTP (80 порт)</h4>
+<p>Для работы не зашифрованных веб-серверов используйте следующую команду:</p>
+<pre><code>sudo ufw allow http
+</code></pre>
+<p>или:</p>
+<pre><code>sudo ufw allow 80
+</code></pre>
+<h4>HTTPS (443 порт)</h4>
+<p>То же самое, что и в предыдущем примере, но для зашифрованных соединений:</p>
+<pre><code>sudo ufw allow https
+</code></pre>
+<p>или:</p>
+<pre><code>sudo ufw allow 443
+</code></pre>
+<p>FTP (21 порт)</p>
+<p>Данный порт используется для незашифрованной передачи файлов:</p>
+<pre><code>sudo ufw allow ftp
+</code></pre>
+<p>или:</p>
+<pre><code>sudo ufw allow 21/tcp
+</code></pre>
+<h3>Добавление диапазонов портов</h3>
+<pre><code>sudo ufw allow 3000:3100
+</code></pre>
+<p>Также вы можете указывать конкретный протокол:</p>
+<pre><code>sudo ufw allow 3000:3100/tcp
+
+sudo ufw allow 3000:3100/udp
+</code></pre>
+<h3>Добавление IP-адресов</h3>
+<p>Вы можете указать IP-адрес,  которому будет разрешен доступ.</p>
+<pre><code>sudo ufw allow from 123.45.67.89
+</code></pre>
+<p>В приведенном примере указанному адресу разрешается доступ ко всем портам сервера.</p>
+<p>Если же вы хотите указать доступ к конкретному порту, воспользуйтесь командой вида:</p>
+<pre><code>sudo ufw allow from 123.45.67.89 to any port 22
+</code></pre>
+<p>Аналогичным образом вы можете работать с диапазонами IP-адресов:</p>
+<pre><code>sudo ufw allow from 123.45.67.89/24
+
+
+sudo ufw allow from 123.45.67.89/24 to any port 22
+</code></pre>
+<h3>Ограничение подключений</h3>
+<p>Чтобы запретить HTTP-соединения, вы можете использовать следующую команду:</p>
+<pre><code>sudo ufw deny http
+</code></pre>
+<p>Если вы хотите запретить все соединения с 123.45.67.89, воспользуйтесь следующей командой:</p>
+<pre><code>sudo ufw deny from 123.45.67.89
+</code></pre>
+<h3>Удаление правил</h3>
+<p>Существует два способа удаления правил. Первый — по номеру правила. Выполните команду:</p>
+<pre><code>sudo ufw status numbered
+</code></pre>
+<pre><code>Status: active
+
+
+
+
+     To                         Action      From
+
+     --                         ------      ----
+
+[ 1] 22                         ALLOW IN    Anywhere
+
+[ 2] 80                         ALLOW IN    Anywhere
+
+[ 3] 22 (v6)                    ALLOW IN    Anywhere (v6)
+
+[ 4] 80 (v6)                    ALLOW IN    Anywhere (v6)
+</code></pre>
+<p>После этого выполните команду ufw delete и укажите номер правила, которое следует удалить:</p>
+<pre><code>sudo ufw delete 2
+</code></pre>
+<p>Второй способ заключается в том, что после команды ufw delete используется фактическое правило, например:</p>
+<pre><code>sudo ufw delete allow http
+</code></pre>
+<p>или:</p>
+<pre><code>sudo ufw delete allow 80
+</code></pre>
+<h3>Отключение UFW</h3>
+<p>Отключить UFW можно при помощи команды:</p>
+<pre><code>sudo ufw disable
+</code></pre>
+<p>В результате ее выполнения все созданные ранее правила утратят силу.</p>
+<h3>Сброс правил</h3>
+<p>Если вам требуется сбросить текущие настройки, воспользуйтесь командой:</p>
+<pre><code>sudo ufw reset
+</code></pre>
+<p>В результате ее выполнения все правила будут отключены и удалены.</p>
+<h3>Логи</h3>
+<p>В Ufw есть опция сохранения логов — журнал событий. Для запуска, используйте команду:</p>
+<pre><code>sudo ufw logging on
+</code></pre>
+<p>Ufw поддерживает несколько уровней логгирования:</p>
+<ul>
+<li>off — отключен.</li>
+<li>low — регистрирует все заблокированные пакеты, не соответствующие заданной политике (с ограничением скорости), а также пакеты, соответствующие зарегистрированным правилам.</li>
+<li>medium — все то, что при значении low. Плюс все разрешенные пакеты, не соответствующие заданной политике, все недопустимые пакеты, и все новые соединения. Все записи ведутся с ограничением скорости.</li>
+<li>high — работает также как и medium. Плюс все пакеты с ограничением скорости.</li>
+<li>full — также как и high, но без ограниения скорости.</li>
+</ul>
+<p>Чтобы задать уровень, укажите его как параметр:</p>
+<pre><code>sudo ufw logging high
+</code></pre>
+<p>По умолчанию используется уровень low.</p>
+<p>Для просмотра файлов относящихся с логам ufw используйте команду:</p>
+<pre><code>ls /var/log/ufw*
+</code></pre>
+
+  </main> 
+
+  <footer class="page-footer">
+    <p class="footer-caption">wiki.vulong-development</p>
+  </footer>
+</body>
+</html>
