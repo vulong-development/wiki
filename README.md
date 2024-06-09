@@ -1,3 +1,6 @@
+![Image alt]([https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png](https://storage.yandexcloud.net/xdr-bucket/wiki-vulong-development/wiki.png))
+
+
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Vulong-development/wiki/build.yml)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fvulong-development.github.io%2Fwiki%2F)
 ![Node Current](https://img.shields.io/node/v/%4011ty%2Feleventy)
