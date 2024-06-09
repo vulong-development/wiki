@@ -1,4 +1,4 @@
-![Image alt]([https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png](https://storage.yandexcloud.net/xdr-bucket/wiki-vulong-development/wiki.png))
+![Image alt](https://storage.yandexcloud.net/xdr-bucket/wiki-vulong-development/wiki.png)
 
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Vulong-development/wiki/build.yml)
