@@ -1,7 +1,5 @@
----
-title: Nginx
-layout:base-layout
-time: 29-06-2024
----
+title: Linux
+layout: base-layout
+time: 25-05-24
 
 [Настройка reverse proxy](/wiki/docs/nginx/reverse-proxy)
