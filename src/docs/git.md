@@ -8,4 +8,4 @@ time: 25-05-24
 
 [Семантическое версионирование](/wiki/docs/git/semver)
 
-[Настройка репозитория](wiki/docs/git/setting-up-repository) 
+[Настройка репозитория](/wiki/docs/git/setting-up-repository) 
