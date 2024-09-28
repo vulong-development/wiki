@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
-  <title>Backend | wiki</title>
+  <title>Безопасность API | wiki</title>
   <style>
     html,
     body {
@@ -248,10 +248,55 @@
 
 
   <main class="page-main container"> 
-    <p><a href="/wiki/docs/backend/api-perfomance">Повышение производительности API</a>
-<a href="/wiki/docs/backend/api-security">Безопасность API</a>
-<a href="/wiki/docs/backend/api-design">Проектирование API</a>
-<a href="/wiki/docs/backend/graphql">GraphQL</a></p>
+    <h1>Безопасность API:</h1>
+<hr>
+<p><time>28 сентября 2024</time></p>
+<h2>Аутентификация</h2>
+<hr>
+<ul>
+<li>
+<p>Не используйте <code>Basic Auth</code>. Используйте стандартную проверку подлинности (например: JWT, OAuth).</p>
+</li>
+<li>
+<p>Не изобретайте велосипед для <code>аутентификации</code>, <code>создании токенов</code>, <code>хранения паролей</code>. Используйте стандарты, проверенные библиотеки.</p>
+</li>
+<li>
+<p>Используйте <code>Max Retry</code> и функции jail во время аутентификации.</p>
+</li>
+<li>
+<p>Используйте шифрование для всех конфиденциальных данных.</p>
+</li>
+</ul>
+<h2>JWT (JSON Web Token)</h2>
+<hr>
+<h2>Контроль доступа</h2>
+<hr>
+<h2>OAuth</h2>
+<hr>
+<h2>Запрос</h2>
+<hr>
+<ul>
+<li>Используйте соответствующий HTTP-метод в соответствии с операцией: <code>GET (чтение)</code>, <code>POST (создание)</code>, <code>PUT / PATCH (замена / обновление)</code> и <code>DELETE (удаление)</code>, а также ответьте <code>405 Method Not Allowed</code>, если запрошенный метод не подходит для запрашиваемого ресурса.</li>
+<li>Проверяй тип данных в заголовке <code>Accept</code>, чтобы разрешить только поддерживаемые форматы (например, <code>application/xml</code>, <code>application/json</code> и т.д.) И отвечайте <code>406 Not Acceptable</code>, если тип не поддерживается.</li>
+<li>Проверяйте, сможете ли вы обработать тип получаемых данных (например, <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code>, <code>application/json</code> и т.д.).</li>
+<li>Проверьте пользовательский ввод во избежание распространенных уязвимостей (например: <code>XSS</code>, <code>SQL-инъекций</code>, <code>удаленное выполнение кода</code> и т.д.).</li>
+<li>Не передавайте конфиденциальные данные (<code>учетные данные</code>, <code>пароли</code>, <code>токены</code> или <code>ключи API</code>) в URL-адресе, вместо него используйте стандартный заголовок <code>Authorization</code>.</li>
+<li>Используйте только шифрование на стороне сервера.</li>
+<li>Используйте единый API-шлюз, чтобы можно было настроить кеширование, ограничение на кол-во запросов, Spike Arrest, а также динамическое развертывание API.</li>
+</ul>
+<h2>Processing</h2>
+<hr>
+<h2>Ответ</h2>
+<hr>
+<ul>
+<li>Отправляйте заголовок <code>X-Content-Type-Options: nosniff</code>.</li>
+<li>Отправляйте заголовок <code>X-Frame-Options: deny</code>.</li>
+<li>Отправляйте заголовок <code>Content-Security-Policy: default-src 'none'</code>.</li>
+<li>Удалите заголовки, которые могут помочь злоумышленнику в исследовании вашего ресурса на уязвимости - <code>X-Powered-By</code>, <code>Server</code>, <code>X-AspNet-Version</code> и т.д.</li>
+<li>Зафиксируйте <code>Content-Type</code> для вашего ответа, если вы возвращаете <code>application/json</code>, тогда запрос должен быть в <code>application/json</code>.</li>
+<li>Не возвращайте конфиденциальные данные, такие как <code>учетные данные</code>, <code>пароли</code>, <code>токены</code>.</li>
+<li>Возвращайте код состояния в соответствии с итогами обработки. (Например: <code>200 OK</code>, <code>400 Bad Request</code>, <code>401 Unauthorized</code>, <code>405 Method Not Allowed</code> и т.д.).</li>
+</ul>
 
   </main> 
 
