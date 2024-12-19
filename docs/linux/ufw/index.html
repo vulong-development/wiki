@@ -208,6 +208,18 @@
       background-color: #698567;
     }
 
+    .header-nav__list {
+      margin: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-link {
+      margin: 0;
+      display: block;
+    }
+
 
      /*footer*/
     .page-footer {
@@ -240,7 +252,11 @@
     </div>
     <nav class="header-nav">
       <div class="container">
-        Документация
+        <ul class="header-nav__list">
+          <li>
+            <a class="header-link" href='/'>Главная</a>
+          </li>
+        </ul>
       </div>
     </nav>
   </header> 

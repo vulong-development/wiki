@@ -208,6 +208,18 @@
       background-color: #698567;
     }
 
+    .header-nav__list {
+      margin: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-link {
+      margin: 0;
+      display: block;
+    }
+
 
      /*footer*/
     .page-footer {
@@ -240,7 +252,11 @@
     </div>
     <nav class="header-nav">
       <div class="container">
-        Документация
+        <ul class="header-nav__list">
+          <li>
+            <a class="header-link" href='/'>Главная</a>
+          </li>
+        </ul>
       </div>
     </nav>
   </header> 
@@ -258,18 +274,18 @@
         <a class="menu-link" href="/wiki/docs/node-js">Node.js</a>
       </li>
       <li class="menu-item">
-        <a class="menu-link" href="/wiki/docs/docker">Docker</a>
+        <a class="menu-link" href="/docs/docker">Docker</a>
       </li>
       <li class="menu-item">
         <a class="menu-link" href="/wiki/docs/git">Git</a>
       </li>
-<li class="menu-item">
+      <li class="menu-item">
         <a class="menu-link" href="/wiki/docs/nginx">Nginx</a>
       </li>
-<li class="menu-item">
+      <li class="menu-item">
         <a class="menu-link" href="/wiki/docs/frontend">Frontend</a>
       </li>
-<li class="menu-item">
+      <li class="menu-item">
         <a class="menu-link" href="/wiki/docs/backend">Backend</a>
       </li>
 <li class="menu-item">
