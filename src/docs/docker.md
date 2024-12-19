@@ -1,7 +1,8 @@
 ---
-title: Git
+title: Docker
 layout: base-layout
 time: 14-07-24
 ---
 
-[Удаление мусора](/wiki/docs/docker/garbage-removal)
+[Безопасность](/docs/docker/security)
+[Удаление мусора](/docs/docker/garbage-removal)
